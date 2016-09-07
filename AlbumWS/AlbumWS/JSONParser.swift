@@ -8,17 +8,22 @@
 
 import Foundation
 
+
 class JSONParser {
     
+    
+    //Pasa los datos de un objeto NSData a un arreglo de albums
     static func parseAlbums(data : NSData) -> [Album] {
         
         var albumsList = [Album]()
         
+        //Cuerpo de un try catch
         do  {
             let json = try NSJSONSerialization.JSONObjectWithData(data, options: [])
             //Se pasa el JSON a un array
             let albumsArray = json as! NSArray
             
+            //Cada album del arreglo es un diccionario
             for album in albumsArray{
                 let albumId = album["id"] as! Int
                 let albumTitle = album["title"] as! String

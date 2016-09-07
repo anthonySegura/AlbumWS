@@ -8,7 +8,8 @@
 
 import Foundation
 
-//Clase para almacenar todas las constantes utilizadas en el proyecto
+//Clase para almacenar todas las constantes utilizadas en el proyecto.
+//Buenas practicas de programacion
 class Constants {
     
     //Connection

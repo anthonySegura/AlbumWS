@@ -8,10 +8,11 @@
 
 import UIKit
 
+
+//Controlador del tableView de albums
 class AlbumsTableViewController: UITableViewController {
     
     //Arreglo de albums
-    
     var tableViewAlbumData = [Album]()
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -35,13 +36,14 @@ class AlbumsTableViewController: UITableViewController {
     //MARK: -WebService connection
     
     
+    //Realiza la conexion con el WebService
     //Metodo asincrono - Los metodos sincronos congelan la aplicacion
-    //La app debe de mostrar que esta cargando
+    //La app debe mostrar que esta cargando
     func connect(){
         
         self.activityIndicator.startAnimating()
-        //Direccion del Web Service
         
+        //Direccion del Web Service
         let urlPath : String! = Constants.BASE_URL + Constants.ALBUMS
         let url = NSURL(string: urlPath)
         //Se crea la sesion
@@ -49,6 +51,7 @@ class AlbumsTableViewController: UITableViewController {
         //Se crea la tarea
         let task = session.dataTaskWithURL(url!, completionHandler: {data,
             response, error -> Void in
+            //Cuerpo de la funcion anonima
             if error != nil {
                 print(error!.localizedDescription)
                 return
@@ -63,6 +66,7 @@ class AlbumsTableViewController: UITableViewController {
             if statusCode == Constants.STATUS_OK {
                 //Como este metodo es asincrono se tiene que llamar esto para hacer cambios en el hilo principal
                 dispatch_async(dispatch_get_main_queue()){
+                    //Se cargan los datos en el tableView
                     self.setTableView(JSONParser.parseAlbums(data!))
                 }
                 
@@ -71,17 +75,19 @@ class AlbumsTableViewController: UITableViewController {
         })
         //Se llama la tarea
         task.resume()
-        //self.activityIndicator.stopAnimating()
         
     }
     
     //MARK: - UI Methods
     
+    
+    //Carga los datos de los albums desde el WebService
     func setTableView(albumsData : [Album]){
+        
         tableViewAlbumData = albumsData
         self.activityIndicator.stopAnimating()
         self.activityIndicator.hidden = true
-        //Se actualiza el tableView
+        //Se actualizan las celdas del tableView
         self.tableView.reloadData()
         
     }
