@@ -16,6 +16,8 @@
 		929468A91D809C53002CDA26 /* AlbumsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929468A81D809C53002CDA26 /* AlbumsTableViewController.swift */; };
 		929468AB1D809D2E002CDA26 /* FotosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929468AA1D809D2E002CDA26 /* FotosTableViewController.swift */; };
 		929468AD1D80A195002CDA26 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929468AC1D80A195002CDA26 /* Album.swift */; };
+		929468AF1D80B1B7002CDA26 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929468AE1D80B1B7002CDA26 /* Constants.swift */; };
+		929468B11D80B5D7002CDA26 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929468B01D80B5D7002CDA26 /* JSONParser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		929468A81D809C53002CDA26 /* AlbumsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumsTableViewController.swift; sourceTree = "<group>"; };
 		929468AA1D809D2E002CDA26 /* FotosTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FotosTableViewController.swift; sourceTree = "<group>"; };
 		929468AC1D80A195002CDA26 /* Album.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		929468AE1D80B1B7002CDA26 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		929468B01D80B5D7002CDA26 /* JSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +113,8 @@
 				929468A81D809C53002CDA26 /* AlbumsTableViewController.swift */,
 				929468AA1D809D2E002CDA26 /* FotosTableViewController.swift */,
 				929468AC1D80A195002CDA26 /* Album.swift */,
+				929468AE1D80B1B7002CDA26 /* Constants.swift */,
+				929468B01D80B5D7002CDA26 /* JSONParser.swift */,
 			);
 			path = AlbumWS;
 			sourceTree = "<group>";
@@ -262,7 +268,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				929468AF1D80B1B7002CDA26 /* Constants.swift in Sources */,
 				929468791D80993A002CDA26 /* AppDelegate.swift in Sources */,
+				929468B11D80B5D7002CDA26 /* JSONParser.swift in Sources */,
 				929468AB1D809D2E002CDA26 /* FotosTableViewController.swift in Sources */,
 				929468A91D809C53002CDA26 /* AlbumsTableViewController.swift in Sources */,
 				929468AD1D80A195002CDA26 /* Album.swift in Sources */,
@@ -494,6 +502,7 @@
 				9294689F1D80993A002CDA26 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		929468A01D80993A002CDA26 /* Build configuration list for PBXNativeTarget "AlbumWSTests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +511,7 @@
 				929468A21D80993A002CDA26 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		929468A31D80993A002CDA26 /* Build configuration list for PBXNativeTarget "AlbumWSUITests" */ = {
 			isa = XCConfigurationList;
@@ -510,6 +520,7 @@
 				929468A51D80993A002CDA26 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -21,7 +21,8 @@ class AlbumsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.activityIndicator.hidesWhenStopped = true
+
+        self.navigationItem.title = Constants.ALBUMS_TITLE
         //Conexion con el web service
         connect()
     }
@@ -40,7 +41,8 @@ class AlbumsTableViewController: UITableViewController {
         
         self.activityIndicator.startAnimating()
         //Direccion del Web Service
-        let urlPath : String! = "http://jsonplaceholder.typicode.com/albums"
+        
+        let urlPath : String! = Constants.BASE_URL + Constants.ALBUMS
         let url = NSURL(string: urlPath)
         //Se crea la sesion
         let session = NSURLSession.sharedSession()
@@ -53,13 +55,34 @@ class AlbumsTableViewController: UITableViewController {
             }
             let httpResponse = response as! NSHTTPURLResponse
             let statusCode = httpResponse.statusCode
+            /*
+            Convertir los datos a string
+            let convertedString = NSString(data : data!, encoding: NSUTF8StringEncoding)
+            */
             
-            print(statusCode)
-        
+            if statusCode == Constants.STATUS_OK {
+                //Como este metodo es asincrono se tiene que llamar esto para hacer cambios en el hilo principal
+                dispatch_async(dispatch_get_main_queue()){
+                    self.setTableView(JSONParser.parseAlbums(data!))
+                }
+                
+            }
+            
         })
         //Se llama la tarea
         task.resume()
         //self.activityIndicator.stopAnimating()
+        
+    }
+    
+    //MARK: - UI Methods
+    
+    func setTableView(albumsData : [Album]){
+        tableViewAlbumData = albumsData
+        self.activityIndicator.stopAnimating()
+        self.activityIndicator.hidden = true
+        //Se actualiza el tableView
+        self.tableView.reloadData()
         
     }
 
@@ -70,19 +93,20 @@ class AlbumsTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        
+        return self.tableViewAlbumData.count
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
 
-        // Configure the cell...
-
+        let album = self.tableViewAlbumData[indexPath.row]
+        cell.textLabel?.text = album.titulo
         return cell
     }
-    */
+    
+    
 
     /*
     // Override to support conditional editing of the table view.
