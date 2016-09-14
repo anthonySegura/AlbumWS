@@ -37,7 +37,7 @@ class AlbumsTableViewController: UITableViewController {
     
     
     //Realiza la conexion con el WebService
-    //Metodo asincrono - Los metodos sincronos congelan la aplicacion
+    //Metodo asincrono - Los metodos sincronos congelan la aplicacion!
     //La app debe mostrar que esta cargando
     func connect(){
         

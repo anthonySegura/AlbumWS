@@ -33,7 +33,7 @@
                                 </tableViewCellContentView>
                                 <animations/>
                                 <connections>
-                                    <segue destination="w40-3R-abE" kind="show" id="Y8I-b4-voE"/>
+                                    <segue destination="w40-3R-abE" kind="show" identifier="toPhotoListSegue" id="Y8I-b4-voE"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -103,9 +103,6 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="44" y="99" width="312" height="21"/>
-                                </variation>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LNQ-PZ-EB5">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -118,8 +115,7 @@
                                         <exclude reference="yV5-ck-dzn"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="32" y="152" width="333" height="426"/>
+                                <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="yV5-ck-dzn"/>
                                     </mask>
